@@ -1,4 +1,11 @@
-import streamlit as st
+﻿import os
+
+# 1. التأكد من وجود المجلدات
+os.makedirs('modules', exist_ok=True)
+os.makedirs('agents', exist_ok=True)
+
+# 2. ملف التطبيق الرئيسي الموحد app.py
+app_code = '''import streamlit as st
 
 st.set_page_config(
     page_title="منظومة مشروعي ERP",
@@ -97,3 +104,9 @@ elif menu == "📲 التنبيهات والتلغرام (TelegramAgent)":
     st.title("📲 قسم التنبيهات وإشعار المدير")
     st.info("🤖 **الوكيل المسؤول:** TelegramAgent")
     st.write("ربط التنبيهات الفورية وبوت التلغرام لإرسال الملخصات اليومية.")
+'''
+
+with open('app.py', 'w', encoding='utf-8') as f:
+    f.write(app_code)
+
+print("✅ تم توحيد كود جميع الأقسام بنجاح داخل app.py بملف واحد مالي الشاشة!")
